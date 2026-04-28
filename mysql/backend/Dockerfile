@@ -1,0 +1,22 @@
+# Use the latest Node.js 20 image as the base image
+FROM node:20 
+# Expose port 8080 for the application
+EXPOSE 8080 
+# Create a new user named 'expense'
+RUN useradd expense 
+# Set the working directory to /opt/server
+RUN mkdir /opt/server
+# Set the ownership of the /opt/server directory to the 'expense' user
+RUN chown -R expense:expense -R /opt/server
+# switch to opt server directory
+WORKDIR /opt/server
+# Copy the package.json file to the /opt/server directory
+COPY package.json .
+# Copy all the .js files in to the opt/server directory
+COPY *.js .
+# Install all dependencies defined in the package.json file
+RUN npm install
+
+CMD ["node", "index.js"]
+
+
