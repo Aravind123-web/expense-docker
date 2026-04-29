@@ -9,6 +9,6 @@ RUN rm -rf /etc/nginx/conf.d/default.conf
 # copy our custom nginx configuration to nginx configuration location
 COPY expense.conf /etc/nginx/nginx.conf
 # copy our frontend code to nginx content location
-COPY code/ /usr/share/nginx/html
+COPY code /usr/share/nginx/html
 
 
