@@ -1,0 +1,21 @@
+name: expense
+networks:
+  default:
+    external: true
+    name: expense
+services:
+  mysql:
+    image: mysql:v1
+    container_name: mysql # --name mysql
+  backend:
+    image: backend:v1
+    container_name: backend # --name backend
+    depends_on:
+      - mysql
+  frontend:
+    image: frontend:v1
+    container_name: frontend # --name frontend
+    depends_on:
+      - backend
+    ports: # expose port 80 of the container to host
+      - "80:80"
