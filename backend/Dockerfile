@@ -1,5 +1,5 @@
 # Use the latest Node.js 20 image as the base image
-FROM node:20 
+FROM node:20-alpine3.22
 # Expose port 8080 for the application
 EXPOSE 8080 
 # Set the environment variable DB_HOST to mysql, which is the hostname of the MySQL container. This allows the application to connect to the MySQL database using this hostname.
