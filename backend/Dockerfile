@@ -6,7 +6,7 @@ EXPOSE 8080
 ENV DB_HOST=mysql
 # Create a new user named 'expense'
 # creatung group named 'expense' and adding user 'expense' to that group. This is done to ensure that the application runs with a non-root user, which is a best practice for security reasons.
-RUN addgroup -s expense && adduser -s expense -G expense
+RUN addgroup -S expense && adduser -S expense -G expense
 # Set the working directory to /opt/server
 RUN mkdir /opt/server
 # Set the ownership of the /opt/server directory to the 'expense' user
