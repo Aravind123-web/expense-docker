@@ -5,7 +5,8 @@ EXPOSE 8080
 # Set the environment variable DB_HOST to mysql, which is the hostname of the MySQL container. This allows the application to connect to the MySQL database using this hostname.
 ENV DB_HOST=mysql
 # Create a new user named 'expense'
-RUN useradd expense 
+# creatung group named 'expense' and adding user 'expense' to that group. This is done to ensure that the application runs with a non-root user, which is a best practice for security reasons.
+RUN addgroup -s expense && adduser -s expense -G expense
 # Set the working directory to /opt/server
 RUN mkdir /opt/server
 # Set the ownership of the /opt/server directory to the 'expense' user
