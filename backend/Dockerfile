@@ -7,9 +7,7 @@ ENV DB_HOST=mysql
 # Create a new user named 'expense'
 # creatung group named 'expense' and adding user 'expense' to that group. This is done to ensure that the application runs with a non-root user, which is a best practice for security reasons.
 RUN addgroup -S expense && adduser -S expense -G expense \
-# Set the working directory to /opt/server
     && mkdir /opt/server
-# Set the ownership of the /opt/server directory to the 'expense' user
     && chown -R expense:expense -R /opt/server
 # switch to opt server directory
 WORKDIR /opt/server
